@@ -1,19 +1,16 @@
 import React from "react";
 
-function Followers({ image, name, html_url, bio }) {
+function Followers(props) {
     return (
-        <div className="followers">
-            <h1> My Github Followers </h1>
-            {/* <img src={image} alt="" /> */}
-            <div className="url-container">
-            <h2>{name}</h2> 
-            <a href={html_url} className="url">
-              <p>{name}'s Github Profile</p>  
-            </a>
+        <div>
+            <img src={props.users.avatar_url} />
+            <div className='list'>
+                <h3>{props.users.name}</h3>
+                <p><span>Profile: </span><a>{props.users.html_url}</a></p>
+                <p><span>Username: </span>{props.users.login}</p>
+            </div>
         </div>
-    </div>
-    );
+    )
 }
-
 
 export default Followers;

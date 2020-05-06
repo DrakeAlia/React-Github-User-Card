@@ -1,15 +1,15 @@
 import React from 'react';
-import logo from './logo.svg';
+import './App.css'
 import axios from 'axios';
-import './App.css';
+import User from './components/User';
+import Followers from './components/Followers';
 
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      User: {}, 
-      Follwers: [],
-      Searchfollowers: ""
+      User: [], 
+      Followers: []
     };
   }
   componentDidMount() {
@@ -25,7 +25,7 @@ class App extends React.Component {
     .catch(err => console.log("errorUsers", err));
 
  axios
- .get("https://api.github.com/users/DrakeAlia/Followers")
+ .get("https://api.github.com/users/DrakeAlia/followers")
  .then(response => {
    console.log(response);
    this.setState({
@@ -35,25 +35,23 @@ class App extends React.Component {
  .catch(err => console.log("errorFollowers", err));
 }
 
-// handleSearchFollowers = e => {
-//   this.setState 
-// }
-
 render() {
-  console.log(this.state);
-
   return (
     <div className="App">
-    <h1>My Github Usercard</h1>
-    {/* <input 
-     type="text"
-     value={this.state.doggoText}
-     onChange={this.handleChanges}
-   /> */}
+      <div className="user">
+        <h1>My Github Account</h1>
+        <User user={this.state.User} />
+      </div>
+      <div className="follower">
+      <h1>My Github Followers</h1>
+     {
+       this.state.Followers.map(item => <Followers users={item}/>)
+     }
+     </div>
     </div>
-
-    )
+    );
   }
 }
+
 
 export default App;
