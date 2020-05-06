@@ -1,5 +1,6 @@
 import React from "react";
 
+// fetching followers data - their img and github handler name
 function Followers(props) {
     return (
         <div>

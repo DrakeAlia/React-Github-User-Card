@@ -15,6 +15,8 @@ class App extends React.Component {
       Followers: []
     };
   }
+
+  // for my github account 
   componentDidMount() {
     axios
     .get("https://api.github.com/users/DrakeAlia") 
@@ -27,6 +29,7 @@ class App extends React.Component {
     })
     .catch(err => console.log("errorUsers", err));
 
+// for my github followers acoount
  axios
  .get("https://api.github.com/users/DrakeAlia/followers")
  .then(response => {
@@ -38,6 +41,7 @@ class App extends React.Component {
  .catch(err => console.log("errorFollowers", err));
 }
 
+// rendering and maping out for user and followers each time
 render() {
   return (
     <div className="App">

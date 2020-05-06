@@ -1,6 +1,6 @@
 import React from "react";
 
-
+// fetching my github profile with the following displayed 
 const User=(props) => {
     return (
         <div>
